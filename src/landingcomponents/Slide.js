@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState } from "react";
 import Slide1 from "../images/Slide-1.jpg";
 import Slide2 from "../images/Slide-2.jpg";
 import Slide3 from "../images/Slide-3.jpg";
@@ -8,39 +8,15 @@ import SlideLBtn2 from "../images/SlideLBtn2.svg";
 import SlideRBtn2 from "../images/SlideRBtn2.svg";
 import SlideLBtnHo2 from "../images/SlideLBtnHo2.svg";
 import SlideRBtnHo2 from "../images/SlideRBtnHo2.svg";
-import Minihorse1 from "../images/Minihorse1.png";
-import Minihorse2 from "../images/Minihorse2.png";
-import fix2 from "../images/fix2.png";
-import fix3 from "../images/fix3.png";
-import fix4 from "../images/fix4.png";
 import fix from "../images/fotor.png";
+
 const images = [Slide1, Slide2, Slide3];
-const delay = 4500;
+
 export const Slide = () => {
   const [index, setIndex] = useState(0);
   const [isHoveredL, setIsHoveredL] = useState(false);
   const [isHoveredR, setIsHoveredR] = useState(false);
-  const timeoutRef = useRef(null);
-  const resetTimeout = () => {
-    if (timeoutRef.current) {
-      clearTimeout(timeoutRef.current);
-    }
-  };
 
-  useEffect(() => {
-    resetTimeout();
-    timeoutRef.current = setTimeout(
-      () =>
-        setIndex((prevIndex) =>
-          prevIndex === images.length - 1 ? 0 : prevIndex + 1
-        ),
-      delay
-    );
-
-    return () => {
-      resetTimeout();
-    };
-  }, [index]);
   return (
     <div>
       <div class="gradient gradient--c"></div>
